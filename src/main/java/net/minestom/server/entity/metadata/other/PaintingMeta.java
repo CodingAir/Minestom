@@ -59,6 +59,10 @@ public class PaintingMeta extends EntityMeta {
         return position;
     }
 
+    /**
+     * Sets center position of a painting (with block coordinates)
+     * @param position position of a painting
+     */
     public void setPosition(Pos position) {
         this.position = position;
     }

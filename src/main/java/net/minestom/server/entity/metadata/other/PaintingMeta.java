@@ -1,5 +1,6 @@
 package net.minestom.server.entity.metadata.other;
 
+import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Metadata;
 import net.minestom.server.entity.metadata.EntityMeta;
@@ -15,9 +16,11 @@ public class PaintingMeta extends EntityMeta {
 
     private Motive motive = Motive.KEBAB;
     private Direction direction = Direction.SOUTH;
+    private Pos position;
 
     public PaintingMeta(@NotNull Entity entity, @NotNull Metadata metadata) {
         super(entity, metadata);
+        this.position = entity.getPosition();
     }
 
     @NotNull
@@ -51,10 +54,23 @@ public class PaintingMeta extends EntityMeta {
         this.direction = direction;
     }
 
+    @NotNull
+    public Pos getPosition() {
+        return position;
+    }
+
+    /**
+     * Sets center position of a painting (with block coordinates)
+     * @param position position of a painting
+     */
+    public void setPosition(Pos position) {
+        this.position = position;
+    }
+
     /*
       TODO: write a parser?
       Currently none of existing ones support it.
-     */
+    */
     public enum Motive {
         KEBAB(0, 0, 16, 16),
         AZTEC(16, 0, 16, 16),
